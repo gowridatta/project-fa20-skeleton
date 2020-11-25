@@ -43,3 +43,5 @@ def generate_random_input(n):
 			G[r][c]['stress'] = round(random.uniform(0, 50), 3)
 
 	return G
+
+generate_input()
