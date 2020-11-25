@@ -1,7 +1,9 @@
 import networkx as nx
 import random
+import sys
 from utils import *
 from parse import *
+from pathlib import Path
 
 NUM_STUDENT = 20
 
@@ -23,7 +25,7 @@ def generate_input():
 
 	stress_budget = 50
 
-	path = '/samples'#sys.argv[1]
+	path = sys.argv[1]
 
 	write_input_file(G, stress_budget, path)
 	return None
@@ -41,6 +43,3 @@ def generate_random_input(n):
 			G[r][c]['stress'] = round(random.uniform(0, 50), 3)
 
 	return G
-
-
-
