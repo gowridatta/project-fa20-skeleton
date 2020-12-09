@@ -19,7 +19,7 @@ def dp_solve(G, S_max):
 	"""
 	n = G.number_of_nodes()
 
-	result = dynamic_traverse(n, 1, G, S_max)
+	result = dynamic_traverse(n, 0, G, S_max)
 
 	D = {i: result[i] for i in range(result)}
 
@@ -46,9 +46,10 @@ def dynamic_traverse(n, k, G, S_max):
 		return [[n]]
 	
 	without_n = dynamic_traverse(n - 1, k + 1, G, S_max)
-
+	without_n.append([n])
+	
 	with_n = dynamic_traverse(n - 1, k, G, S_max)
-	max_group = max_happiness_subgraph(G, with_n, n, S_max/k)
+	max_group = max_happiness_subgraph(G, with_n, n, S_max / (k + len(with_n)))
 	
 	if not max_group:
 		dynamic_storage[(n, k)] = without_n + [[n]]
