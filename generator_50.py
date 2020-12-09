@@ -1,7 +1,6 @@
 import networkx as nx
 import random
 import sys
-import statistics
 from utils import *
 from parse import *
 
@@ -29,12 +28,23 @@ def generate_input():
 				G[room[i]][room[j]]['stress'] = round(random.uniform(10, 70), 3)
 				stress.append(G[room[i]][room[j]]['stress'])
 		
-		stress_lst.append(mean(stress))
+		stress_lst.append(sum(stress) / len(stress))
 
 	stress_budget = min(round(max(stress_lst), 0) + 5, 99)
 
 	path = sys.argv[1]
 	write_input_file(G, stress_budget, path)
+	d = [[0, 6, 12, 23, 26, 33], [1, 2, 27, 38, 39, 42, 46], [3, 8, 16, 21], [4, 7, 11, 37, 48], [5, 18, 31, 34, 47],
+			 [9, 13, 22, 32, 43], [10, 19, 29, 41], [14, 15, 17, 44], [20, 24, 36, 49], [25, 28, 30], [35, 40, 45]]
+	D = {}
+	for i in range(len(d)):
+		for j in range(len(d[i])):
+			D[d[i][j]] = i
+	print(D)
+	write_output_file(D, sys.argv[2])
+
+	read_output_file(sys.argv[2], G, stress_budget)
+
 	return None
 
 
@@ -50,3 +60,5 @@ def generate_random_input(n):
 			G[r][c]['stress'] = round(random.uniform(0, 100), 3)
 
 	return G
+
+generate_input()

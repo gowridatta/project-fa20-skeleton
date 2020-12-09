@@ -49,9 +49,9 @@ def generate_input_from_output():
 		for c in range(r + 1, n):
 			G[r][c]['happiness'] = round(random.uniform(0, 5), 3)
 			G[r][c]['stress'] = round(random.uniform(0, 0.5), 3)
-	D = read_output_file(sys.argv[1], G, 60)
+	D = read_output_file(sys.argv[1], G, 66)
 
-	stress_budget = 50
+	stress_budget = 66
 
 	for r in range(0, n - 1):
 		for c in range(r + 1, n):
@@ -63,9 +63,10 @@ def generate_input_from_output():
 					G[r][c]['happiness'] = round(random.uniform(70, 100), 3)
 					G[r][c]['stress'] = round(random.uniform(90, 99), 3)
 				else:
-					G[r][c]['happiness'] = round(random.uniform(0, 2), 3)
-					G[r][c]['stress'] = round(random.uniform(27, 50), 3)
+					G[r][c]['happiness'] = round(random.uniform(0, 1), 3)
+					G[r][c]['stress'] = round(random.uniform(1, 3), 3)
 
 	write_input_file(G, stress_budget, sys.argv[2])
+	read_output_file(sys.argv[1], G, 66)
 
 generate_input_from_output()
