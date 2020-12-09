@@ -5,7 +5,7 @@ import statistics
 from utils import *
 from parse import *
 
-NUM_STUDENT = 20
+NUM_STUDENT = 10
 same_room = [[1, 2, 6, 8, 9], [0, 3], [4, 5, 7]]
 
 
