@@ -51,3 +51,17 @@ def room_to_student_to_student_to_room(S):
             D[item] = key
 
     return D
+
+def checkunique(G, D):
+    """
+    Check to see if all the students have been placed and if there is anyone
+    is placed in two different rooms.
+    """
+    n = G.number_of_nodes()
+    checklist = [0] * n
+
+    for key in D.keys():
+        if checklist[key] == 1:
+            return False
+        checklist[key] = 1
+    return all(checklist)
