@@ -23,6 +23,9 @@ def solve(G, s):
 
     D_gr, k_gr = greedy_solve(G, s)
 
+    if not is_valid_solution(D_dp, G, s, k_dp):
+        return D_gr, k_gr
+
     if calculate_happiness(D_dp, G) >= calculate_happiness(D_gr, G):
         return D_dp, k_dp
     else:
