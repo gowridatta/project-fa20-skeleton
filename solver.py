@@ -56,10 +56,10 @@ def solve(G, s):
 if __name__ == '__main__':
     inputs = glob.glob('inputs/*')
     for input_path in inputs:
-        output_path = 'file_path/outputs/' + basename(normpath(input_path))[:-3] + '.out'
-        G, s = read_input_file(input_path, 100)
+        output_path = 'outputs/' + basename(normpath(input_path))[:-3] + '.out'
+        G, s = read_input_file(input_path)
         D, k = solve(G, s)
         assert is_valid_solution(D, G, s, k)
-        cost_t = calculate_happiness(T)
+        happiness = calculate_happiness(D, G)
         write_output_file(D, output_path)
         print("{} done".format(basename(normpath(input_path))[:-3]))
