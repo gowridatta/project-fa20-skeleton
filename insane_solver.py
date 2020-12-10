@@ -111,7 +111,7 @@ if __name__ == '__main__':
         happiness_dp = calculate_happiness(D_dp, G)
         print("Happiness: " + str(happiness) + "\t" + str(happiness_dp))
         write_output_file(D, output_path)
-        print("{} done".format(basename(normpath(input_path))[:-3]), end="")
+        print("{} done".format(basename(normpath(input_path))[:-3]))
 
 # if __name__ == '__main__':
 #     assert len(sys.argv) == 2
