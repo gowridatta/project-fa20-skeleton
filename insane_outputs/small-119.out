@@ -1,5 +1,6 @@
 0 0
 1 1
+<<<<<<< HEAD:insane_outputs/small-119.out
 2 0
 3 2
 4 2
@@ -8,3 +9,13 @@
 7 0
 8 1
 9 2
+=======
+2 2
+3 1
+4 3
+5 4
+6 0
+7 2
+8 2
+9 5
+>>>>>>> 58fd22f53d988a785f4920cdf0fd3d2f9a63be1a:outputs/small-167.out
