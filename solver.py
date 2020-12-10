@@ -79,7 +79,7 @@ if __name__ == '__main__':
         assert is_valid_solution(D, G, s, k)
         happiness = calculate_happiness(D, G)
         write_output_file(D, output_path)
-        print("{} done".format(basename(normpath(input_path))[:-3]))
+        print("{} done. Happiness: {}".format(basename(normpath(input_path))[:-3], happiness))
 
 # if __name__ == '__main__':
 #     inputs = glob.glob('inputs/*')
