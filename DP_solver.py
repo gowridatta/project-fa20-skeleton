@@ -19,11 +19,13 @@ def dp_solve(G, S_max):
     """
     n = G.number_of_nodes()
 
-    result = dynamic_traverse(n - 1, 1, G, S_max)
+    result = dynamic_traverse(n - 1, 0, G, S_max)
 
     S = {i: result[i] for i in range(len(result))}
 
     D = room_to_student_to_student_to_room(S)
+
+    print(S)
 
     return D, len(result)
 
@@ -58,6 +60,7 @@ def dynamic_traverse(n, k, G, S_max):
     if not max_group:
         value = copy.deepcopy(without_n)
         dynamic_storage[(n, k)] = value
+        #print("Number of rooms: " + str(k + len(with_n)) + "\t" + str((n, k)) + "\t" + str(without_n))
         return copy.deepcopy(dynamic_storage[(n, k)])
 
     max_group.append(n)
@@ -72,10 +75,14 @@ def dynamic_traverse(n, k, G, S_max):
 
     if happiness_with_n > happiness_without_n:
         dynamic_storage[(n, k)] = with_n
+        #print("Number of rooms: " + str(k + len(with_n)) + "\t" + str((n, k)) + "\t" + str(with_n))
     elif happiness_with_n < happiness_without_n:
         dynamic_storage[(n, k)] = without_n
+        #print("Number of rooms: " + str(k + len(with_n)) + "\t" + str((n, k)) + "\t" + str(without_n))
     else:
         dynamic_storage[(n, k)] = random.choice([with_n, without_n])
+        #print("Number of rooms: " + str(k + len(with_n)) + "\t" + str((n, k)) + "\t" + str(dynamic_storage[(n, k)]))
+
 
     value = copy.deepcopy(dynamic_storage[(n, k)])
     return value
