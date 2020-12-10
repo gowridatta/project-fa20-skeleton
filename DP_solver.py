@@ -25,6 +25,8 @@ def dp_solve(G, S_max):
 
     D = room_to_student_to_student_to_room(S)
 
+    dynamic_storage = {}
+
     return D, len(result)
 
 

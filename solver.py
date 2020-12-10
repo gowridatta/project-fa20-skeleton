@@ -48,9 +48,9 @@ def solve(G, s):
 
 # For testing a folder of inputs to create a folder of outputs, you can use glob (need to import it)
 if __name__ == '__main__':
-    inputs = glob.glob('inputs/*')
+    inputs = glob.glob('./samples/our_samples/inputs/*')
     for input_path in inputs:
-        output_path = 'outputs/' + basename(normpath(input_path))[:-3] + '.out'
+        output_path = './samples/our_samples/outputs/' + basename(normpath(input_path))[:-3] + '.out'
         G, s = read_input_file(input_path)
         D, k = solve(G, s)
         assert is_valid_solution(D, G, s, k)
