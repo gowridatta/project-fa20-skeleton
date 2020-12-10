@@ -20,17 +20,8 @@ def solve(G, s):
 
     # TODO: your code here!
     D_dp, k_dp = dp_solve(G, s)
-    dp = checkunique(G, D_dp)
 
     D_gr, k_gr = greedy_solve(G, s)
-    gr = checkunique(G, D_gr)
-
-    assert(dp or gr)
-    
-    if not dp:
-        return D_gr, k_gr
-    else:
-        return D_dp, k_dp
 
     if calculate_happiness(D_dp, G) >= calculate_happiness(D_gr, G):
         return D_dp, k_dp
