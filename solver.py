@@ -44,11 +44,6 @@ def solve(G, s):
     return D, len(rooms)
 
 
-
-
-
-
-
 # Here's an example of how to run your solver.
 
 # Usage: python3 solver.py test.in
