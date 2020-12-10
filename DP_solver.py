@@ -22,7 +22,6 @@ def dp_solve(G, S_max):
     result = dynamic_traverse(n - 1, 1, G, S_max)
 
     S = {i: result[i] for i in range(len(result))}
-    print(S)
 
     D = room_to_student_to_student_to_room(S)
 
