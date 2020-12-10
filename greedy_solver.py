@@ -1,4 +1,4 @@
-from ultils import *
+from utils import *
 from my_utils import *
 import networkx as nx
 import copy
@@ -8,7 +8,7 @@ dynamic_storage = {}
 
 def greedy_solve(G, S_max):
 	"""
-	Solve the problem by using DP.
+	Solve the problem by using Greedy Algorithm.
 
 	Input:
 		G:     original graph
@@ -19,9 +19,8 @@ def greedy_solve(G, S_max):
 	"""
 	n = G.number_of_nodes()
 
-	result = dynamic_traverse(n, 1, G, S_max)
-
-	D = {i: result[i] for i in range(result)}
+	for i in range(n):
+		
 
 	return D
 
