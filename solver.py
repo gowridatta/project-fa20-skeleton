@@ -6,6 +6,7 @@ import glob
 import sys
 from DP_solver import *
 from greedy_solver import *
+from collections import OrderedDict
 
 
 def solve(G, s):
@@ -20,8 +21,10 @@ def solve(G, s):
 
     # TODO: your code here!
     D_dp, k_dp = dp_solve(G, s)
+    D_dp = dict(OrderedDict(sorted(D_dp.items())))
 
     D_gr, k_gr = greedy_solve(G, s)
+    D_gr = dict(OrderedDict(sorted(D_gr.items())))
 
     if not is_valid_solution(D_dp, G, s, k_dp):
         return D_gr, k_gr
