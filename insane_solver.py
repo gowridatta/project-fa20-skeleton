@@ -101,9 +101,9 @@ def set_partition(n):
 
 # For testing a folder of inputs to create a folder of outputs, you can use glob (need to import it)
 if __name__ == '__main__':
-    inputs = glob.glob('insane_inputs_nonlocal/*')
+    inputs = glob.glob('insane_inputs/*')
     for input_path in inputs:
-        output_path = 'insane_outputs_nonlocal/' + basename(normpath(input_path))[:-3] + '.out'
+        output_path = 'insane_outputs/' + basename(normpath(input_path))[:-3] + '.out'
         G, s = read_input_file(input_path)
         D, k, D_dp, k_dp = solve(G, s)
         assert is_valid_solution(D, G, s, k)
