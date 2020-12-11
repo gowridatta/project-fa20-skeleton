@@ -41,6 +41,11 @@ def greedy_solve(G, s):
                     D[reee] = j
                     rooms[j].append(reee)
                     del rooms[reee]
+    num_rooms = 0
+    for key in list(rooms):
+        for thing in rooms[key]:
+            D[thing] = num_rooms
+        num_rooms += 1
     return D, len(rooms)
 
 
