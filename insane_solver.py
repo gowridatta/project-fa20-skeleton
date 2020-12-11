@@ -101,17 +101,23 @@ def set_partition(n):
 
 # For testing a folder of inputs to create a folder of outputs, you can use glob (need to import it)
 if __name__ == '__main__':
-    inputs = glob.glob('insane_inputs/*')
+    inputs = glob.glob('outputs/*')
+
+    count = 0
     for input_path in inputs:
-        output_path = 'insane_outputs/' + basename(normpath(input_path))[:-3] + '.out'
-        G, s = read_input_file(input_path)
-        D, k, D_dp, k_dp = solve(G, s)
-        assert is_valid_solution(D, G, s, k)
-        happiness = calculate_happiness(D, G)
-        happiness_dp = calculate_happiness(D_dp, G)
-        print("Happiness: " + str(happiness) + "\t" + str(happiness_dp))
-        write_output_file(D, output_path)
-        print("{} done".format(basename(normpath(input_path))[:-3]))
+        # output_path = 'insane_outputs/' + basename(normpath(input_path))[:-3] + '.out'
+        # G, s = read_input_file(input_path)
+        # D, k, D_dp, k_dp = solve(G, s)
+        # assert is_valid_solution(D, G, s, k)
+        # happiness = calculate_happiness(D, G)
+        # happiness_dp = calculate_happiness(D_dp, G)
+        # print("Happiness: " + str(happiness) + "\t" + str(happiness_dp))
+        # write_output_file(D, output_path)
+        count += 1
+        print(str(count) + "\t{} done".format(basename(normpath(input_path))[:-3]))
+        
+    print("Num file: " + str(count))
+
 
 # if __name__ == '__main__':
 #     assert len(sys.argv) == 2
